@@ -191,6 +191,9 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
             statement.setInt(9, productId);
 
             statement.executeUpdate();
+
+
+
         }
         catch (SQLException e)
         {
