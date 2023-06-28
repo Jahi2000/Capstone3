@@ -6,6 +6,9 @@ import org.yearup.data.OrdersDAO;
 import org.yearup.data.ProfileDao;
 import org.yearup.data.ShoppingCartDao;
 import org.yearup.data.mysql.MySqlProfileDao;
+import org.yearup.models.Profile;
+
+import java.math.BigDecimal;
 
 @Component
 public class OrderService {
@@ -24,9 +27,11 @@ public class OrderService {
     }
 
     public void checkout(int userId){
-       // get userid from profile dao       profileDao.
+      Profile profile = this.ProfileDao.getById(userId);
+      this.OrdersDAO.create(profile.getUserId(),"2024-05-12 12:12:45", profile.getAddress(), profile.getCity(), profile.getState(), profile.getZip(),new BigDecimal(10000));
 
-        //take the userprofile and send to the orderdao
+      this.ShoppingCartDao.getByUserId(userId);
+
 
     }
 
