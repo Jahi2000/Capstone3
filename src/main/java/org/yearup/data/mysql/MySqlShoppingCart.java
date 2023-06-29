@@ -67,7 +67,7 @@ public class MySqlShoppingCart extends MySqlDaoBase implements ShoppingCartDao {
     public ShoppingCart create(int userId, int productId) {
 
         if (getByUserId(userId).contains(productId)){
-            update(userId,productId);
+           update1(userId,productId);
             return null;
         }
         else {
@@ -93,15 +93,16 @@ public class MySqlShoppingCart extends MySqlDaoBase implements ShoppingCartDao {
     }
 
     @Override
-    public void update(int userId, int productId)
+    public void update(int userId, int productId, ShoppingCartItem shoppingCartItem)
     {
-        String sql = "UPDATE shopping_cart SET quantity = quantity + 1 WHERE user_id = ? AND product_id = ?;";
+        String sql = "UPDATE shopping_cart SET quantity = ? WHERE user_id = ? AND product_id = ?;";
 
         try (Connection connection = getConnection())
         {
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, userId);
-            statement.setInt(2, productId);
+            statement.setInt(1, shoppingCartItem.getQuantity());
+            statement.setInt(2,userId);
+            statement.setInt(3, productId);
             statement.executeUpdate();
         }
         catch (SQLException e)
@@ -109,6 +110,25 @@ public class MySqlShoppingCart extends MySqlDaoBase implements ShoppingCartDao {
             throw new RuntimeException(e);
         }
     }
+    @Override
+    public void update1(int userId, int productId)
+    {
+        String sql = "UPDATE shopping_cart SET quantity = quantity + 1 WHERE user_id = ? AND product_id = ?;";
+
+        try (Connection connection = getConnection())
+        {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, userId);
+            statement.setInt(2,productId);
+            statement.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     @Override
     public void delete(int userId)
     {

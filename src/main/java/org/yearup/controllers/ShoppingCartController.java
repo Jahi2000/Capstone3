@@ -8,7 +8,9 @@ import org.springframework.web.server.ResponseStatusException;
 import org.yearup.data.ProductDao;
 import org.yearup.data.ShoppingCartDao;
 import org.yearup.data.UserDao;
+import org.yearup.models.Product;
 import org.yearup.models.ShoppingCart;
+import org.yearup.models.ShoppingCartItem;
 import org.yearup.models.User;
 
 import java.security.Principal;
@@ -107,7 +109,7 @@ public class ShoppingCartController
 
     @PutMapping("product/{id}")
     // each method in this controller requires a Principal object as a parameter
-    public void update(@PathVariable int id, Principal principal)
+    public void update(@PathVariable int id, Principal principal, @RequestBody ShoppingCartItem shoppingCartItem)
     {
         try
         {
@@ -118,7 +120,7 @@ public class ShoppingCartController
             int userId = user.getId();
 
 
-            this.shoppingCartDao.update(userId, id);
+            this.shoppingCartDao.update(userId, id, shoppingCartItem);
 
         }
         catch(Exception e)
