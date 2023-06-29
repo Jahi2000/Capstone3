@@ -21,7 +21,7 @@ class MySqlProductDaoTest {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl("jdbc:mysql://localhost:3306/easyshop");
         dataSource.setUsername("root");
-        dataSource.setPassword("7726BAll63$");
+        dataSource.setPassword("fxbqd318");
         dao = new MySqlProductDao(dataSource);
     }
 
@@ -73,7 +73,7 @@ class MySqlProductDaoTest {
             setName("SmartTV");
             setPrice(new BigDecimal("950.76"));
             setCategoryId(1);
-            setDescription("Its Rare");
+            setDescription("8K Visual Display");
             setColor("Banana Yellow");
             setStock(88);
             setFeatured(false);
