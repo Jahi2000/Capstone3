@@ -31,7 +31,17 @@ public class Product
         this.imageUrl = imageUrl;
     }
 
-    public Product(int productId,String name,BigDecimal price,int categoryId,String description,String color,int stock,boolean isFeatured){
+    public Product(String name, BigDecimal price, int categoryId, String description, String color, int stock, boolean isFeatured) {
+        this.name = name;
+        this.price = price;
+        this.categoryId = categoryId;
+        this.description = description;
+        this.color = color;
+        this.stock = stock;
+        this.isFeatured = isFeatured;
+    }
+
+    public Product(int productId, String name, BigDecimal price, int categoryId, String description, String color, int stock, boolean isFeatured){
         this.productId = productId;
         this.name = name;
         this.price = price;
