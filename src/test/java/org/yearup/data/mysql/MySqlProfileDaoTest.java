@@ -15,7 +15,7 @@ class MySqlProfileDaoTest {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl("jdbc:mysql://localhost:3306/easyshop");
         dataSource.setUsername("root");
-        dataSource.setPassword("V2en!fos23i4jc6512dijvmv");
+        dataSource.setPassword("fxbqd318");
         profileDao = new MySqlProfileDao(dataSource);
     }
 
@@ -39,7 +39,7 @@ class MySqlProfileDaoTest {
         //ARRANGE
         Profile profile = new Profile()
         {{
-            setUserId(9);
+            setUserId(7);
             setFirstName("Brad");
             setLastName("Bradlerson");
             setPhone("123-234-4567");
@@ -80,4 +80,6 @@ class MySqlProfileDaoTest {
         //ASSERT
         assertEquals("Bradster", profile.getFirstName());
     }
+
 }
+
