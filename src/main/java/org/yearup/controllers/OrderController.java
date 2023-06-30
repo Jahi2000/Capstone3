@@ -28,7 +28,7 @@ public class OrderController {
     }
 
     @PostMapping()
-    public Order getOrder(Principal principal){
+    public void getOrder(Principal principal){
         try
         {
             // get the currently logged in username
@@ -38,7 +38,7 @@ public class OrderController {
             int userId = user.getId();
 
             // use the shoppingcartDao to get all items in the cart and return the cart
-           return orderService.checkout(userId);
+           orderService.checkout(userId);
 
         }
         catch(Exception e)
@@ -46,6 +46,8 @@ public class OrderController {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
+
+
 
 
 

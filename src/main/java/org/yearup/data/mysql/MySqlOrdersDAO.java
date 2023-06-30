@@ -19,10 +19,8 @@ import java.sql.SQLException;
 @Component
 public class MySqlOrdersDAO extends MySqlDaoBase implements OrdersDAO {
 
-    DataSource dataSource;
     public MySqlOrdersDAO(DataSource dataSource){
         super(dataSource);
-        this.dataSource = dataSource;
     }
 
 

@@ -71,12 +71,6 @@ public class ShoppingCartController
             int userId = user.getId();
 
 
-           /* if(this.shoppingCartDao.getByUserId(userId).contains(id)){
-                return null;
-            }else {
-              return this.shoppingCartDao.create(userId, id);
-            }
-            */
             return this.shoppingCartDao.create(userId, id);
 
         }
